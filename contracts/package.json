@@ -1,0 +1,11 @@
+{
+  "name": "zvm-rain-contracts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "solc": "0.8.19"
+  }
+}

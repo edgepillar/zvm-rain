@@ -1,0 +1,8 @@
+bin/
+web/node_modules/
+web/dist/
+contracts/node_modules/
+*.db
+*.db-*
+.env
+secrets/

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Rain</title>
+  <defs>
+    <!-- A coin: the ring of bullet's cylinder, with Zenon's Z in it. -->
+    <g id="coin" fill="none" stroke="#2be56a" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="29" stroke-width="15"/>
+      <path d="M-9 -10 H9 L-9 10 H9" stroke-width="7"/>
+    </g>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#0b0b0b"/>
+
+  <!-- The cloud. -->
+  <path d="M150 214 H358 A50 50 0 0 0 362 114 A80 80 0 0 0 214 96 A60 60 0 0 0 150 214 Z"
+        fill="none" stroke="#2be56a" stroke-width="22" stroke-linejoin="round"/>
+
+  <!-- Coins falling, the whole shower on a slant. -->
+  <g transform="rotate(14 256 360)">
+    <g stroke="#2be56a" stroke-width="10" stroke-linecap="round" fill="none">
+      <!-- Each streak is where its coin just was. -->
+      <line x1="176" y1="234" x2="176" y2="250"/>
+      <line x1="296" y1="226" x2="296" y2="242"/>
+      <line x1="410" y1="246" x2="410" y2="262"/>
+      <line x1="236" y1="338" x2="236" y2="354"/>
+      <line x1="356" y1="334" x2="356" y2="350"/>
+      <line x1="116" y1="354" x2="116" y2="370"/>
+      <line x1="236" y1="262" x2="236" y2="280"/>
+    </g>
+    <use href="#coin" x="176" y="304"/>
+    <use href="#coin" x="296" y="296"/>
+    <use href="#coin" x="410" y="316"/>
+    <use href="#coin" x="236" y="408"/>
+    <use href="#coin" x="356" y="404"/>
+    <use href="#coin" x="116" y="424"/>
+  </g>
+</svg>

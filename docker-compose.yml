@@ -1,0 +1,54 @@
+# Rain, deployed on its own: the Telegram bot and its page at
+# /rain/ on a ZVM gateway. Nothing here belongs to another repository. The bot
+# reaches the chain through the JSON-RPC .env names (ZVM_RPC), as any outside
+# client does, and only dials out; the devnet's gateway forwards /rain/* to the
+# web service below.
+#
+#   docker compose up -d --build
+#
+# Every setting is in .env beside this file (copy .env.example). The key file
+# in secrets/ is Rain's operator: whoever holds it chooses who a rain pays, so
+# it is random, secret, and out of git and the image.
+name: zvm-rain
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zvm-rain:latest
+    container_name: zvm-rain-bot
+    restart: unless-stopped
+    command: [bot]
+    env_file:
+      - path: .env
+        required: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # RAIN_KEYS in .env names this path.
+      - ./secrets/rain.json:/run/secrets/rain.json:ro
+      # What `zvm-rain deploy` wrote; kept out of git and out of the image.
+      - ./deployments/zvm.json:/etc/zvm-rain/zvm.json:ro
+      # Links and the record of every rain.
+      - data:/data
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+      args:
+        VITE_ZVM_NODE: ${VITE_ZVM_NODE:-}
+        VITE_GATEWAY: ${VITE_GATEWAY:-}
+        RAIN_TOKENS: ${RAIN_TOKENS:-}
+        RAIN_BOT_USERNAME: ${RAIN_BOT_USERNAME:-}
+    image: zvm-rain-web:latest
+    container_name: zvm-rain-web
+    restart: unless-stopped
+    # Loopback only: the devnet's gateway reaches it as host.docker.internal:47611,
+    # and nothing else needs to.
+    ports:
+      - "127.0.0.1:47611:80"
+
+volumes:
+  data:

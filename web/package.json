@@ -1,0 +1,20 @@
+{
+  "name": "zvm-rain-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Rain's page: link a wallet to the bot, and approve Rain for an amount of one token, each as a transaction the wallet signs.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.2.5",
+    "@fontsource-variable/space-grotesk": "^5.2.5",
+    "viem": "^2.56.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^7.3.1"
+  }
+}
