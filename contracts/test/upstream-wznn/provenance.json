@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/Zenoglyphs-VM/zvm-node",
+  "commit": "ae90b945b0ea95887c31cfb2f19e0b88504186d8",
+  "archive_sha256": "0932952dd06c72cceb599d13c235ab2f4c6ee4bcfd6cc635eda5661291f77027",
+  "source_member": "contracts/bench/WZNN.sol",
+  "artifact_member": "bench/artifacts/WZNN.json",
+  "license": "GPL-3.0-or-later",
+  "source_recompiled_by_this_suite": false,
+  "vm_hardfork": "Osaka",
+  "files": {
+    "WZNN.sol": {
+      "sha256": "1b1b0542023d576e190ebc0f75fa59209000e6a0139fb83141e215187192d0c0",
+      "bytes": 2936
+    },
+    "WZNN.json": {
+      "sha256": "9f0ced5086480a080d4726ac36a4b6d8b9f6714b640a697e84dff630df3e9419",
+      "bytes": 9815
+    },
+    "COPYING": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "bytes": 35149
+    }
+  }
+}
